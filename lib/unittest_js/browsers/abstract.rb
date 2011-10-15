@@ -21,7 +21,7 @@ module UnittestJS
       end
 
       def windows?
-        host.include?('mswin')
+        host.include?('mswin') || host.include?('mingw32')
       end
 
       def linux?
