@@ -1,8 +1,12 @@
 module UnittestJS
   module Browser
     class Opera < Abstract
-      def initialize(path='c:\Program Files\Opera\Opera.exe')
-        @path = path
+      def initialize(path = nil)
+        @path = path || File.join(
+          ENV['ProgramFiles'],
+          'Opera',
+          'opera.exe'
+        )
       end
 
       def setup

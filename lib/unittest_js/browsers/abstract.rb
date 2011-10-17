@@ -32,17 +32,17 @@ module UnittestJS
         if macos?
           system("open -g -a #{path} '#{url}'")
         elsif windows?
-          system("#{path} #{url}")
+          system("\"#{path}\" #{url}")
         elsif linux?
           system("#{name} #{url}")
         end
       end
       
       def installed?
-        if macos?
+        if macos? || windows?
           File.exists?(path)
         else
-          true #TODO
+          true #TODO: add default linux path in initialize of each browser implementation
         end
       end
       
