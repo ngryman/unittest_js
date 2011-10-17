@@ -5,7 +5,7 @@ module UnittestJS
         def do_GET(req, res)
           prevent_caching(res)
           queue.push(WEBrickRunner::TestResults.new(req))
-          raise WEBrick::HTTPStatus::OK
+          raise WEBrick::HTTPStatus::NoContent
         end
 
         def queue
